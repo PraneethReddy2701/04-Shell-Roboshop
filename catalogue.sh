@@ -1,7 +1,7 @@
 #!/bin/bash
 
 START_TIME=$(date -u)
-USER_ID=(id -u)
+USER_ID=$(id -u)
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
