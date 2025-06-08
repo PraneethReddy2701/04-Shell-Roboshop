@@ -40,15 +40,15 @@ dnf module enable nodejs:20 -y   &>>$LOG_FILE
 VALIDATE $? "Enabling the nodejs:20 version"
 
 dnf install nodejs -y   &>>$LOG_FILE
-VALIDATE $? "Installing nodejs"
+VALIDATE $? "Installing nodejs:20"
 
-id roboshop 
+id roboshop
 if [ $? -ne 0 ]
 then
-    useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop    &>>$LOG_FILE
+    useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop &>>$LOG_FILE
     VALIDATE $? "Creating the system user roboshop"
 else
-    echo -e "Roboshop user is already available.. $Y SO SKIPPING $N"    &>>$LOG_FILE
+    echo -e "Roboshop user is already available.. $Y SO SKIPPING $N" &>>$LOG_FILE
 fi
 
 mkdir -p /app   &>>$LOG_FILE
