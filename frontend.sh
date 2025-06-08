@@ -14,7 +14,7 @@ SCRIPT_DIR=$PWD
 mkdir -p $LOGS_FOLDER
 echo "Script started executing at : $(date)" | tee -a $LOG_FILE
 
-if [ $USER_ID -ne 0]
+if [ $USER_ID -ne 0 ]
 then
     echo -e "$R ERROR: $N Please run the script with root access" | tee -a $LOG_FILE
     exit 1
