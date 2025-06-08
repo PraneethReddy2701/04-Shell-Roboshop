@@ -16,10 +16,10 @@ echo "Script started running at : $(date)"
 
 if [ $USER_ID -ne 0 ]
 then
-    echo -e "ERROR : $R Please run the script with root access $N" &>>$LOG_FILE
+    echo -e "ERROR : $R Please run the script with root access $N" 
     exit 1
 else
-    echo "Running the script with root user" &>>$LOG_FILE
+    echo "Running the script with root user" 
 fi
 
 VALIDATE()
