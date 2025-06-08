@@ -12,15 +12,14 @@ LOG_FILE=$LOGS_FOLDER/$SCRIPT_NAME.log
 SCRIPT_DIR=$PWD
 
 mkdir -p $LOGS_FOLDER
-echo "Script started running at : $(date)"   &>>$LOG_FILE
+echo "Script started running at : $(date)"   
 
 if [ $USER_ID -ne 0 ]
 then
-    echo -e "$R ERROR $N: Please run the script with root user"  &>>$LOG_FILE
+    echo -e "$R ERROR $N: Please run the script with root user"  
     exit 1
 else
-    echo "Running the script with root user"  &>>$LOG_FILE
-fi
+    echo "Running the script with root user" 
 
 VALIDATE()
 {
