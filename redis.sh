@@ -15,7 +15,7 @@ echo "Script started running at : $(date)"   | tee -a $LOG_FILE
 
 if [ $USER_ID -ne 0 ]
 then
-    echo -e "$R ERROR $N: Please run the script with root user"  
+    echo -e "$R ERROR $N: Please run the script with root user"  | tee -a $LOG_FILE
     exit 1
 else
     echo "Running the script with root user" 
