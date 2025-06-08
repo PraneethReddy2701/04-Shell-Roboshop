@@ -74,7 +74,7 @@ VALIDATE $? "Daemon-reload"
 systemctl enable user   &>>$LOG_FILE
 VALIDATE $? "Enabling user"
 
-systemctl start user    &>>$LOG_FILEs
+systemctl start user    &>>$LOG_FILE
 VALIDATE $? "Starting user"
 
 END_TIME=$(date +%s)
