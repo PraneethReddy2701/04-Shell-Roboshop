@@ -48,7 +48,7 @@ then
     useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop &>>$LOG_FILE
     VALIDATE $? "Creating the roboshop system user"
 else
-    echo -e "System user roboshop is already created.. $Y SO SKIPPING $N" &>>$LOG_FILE
+    echo -e "System user roboshop is already created.. $Y SO SKIPPING $N" 
 fi
 
 mkdir -p /app &>>$LOG_FILE
@@ -89,7 +89,7 @@ then
     mongosh --host mongodb.bittu27.site </app/db/master-data.js &>>$LOG_FILE
     VALIDATE $? "Loading data into MongoDB"
 else
-    echo -e "Data is already Loaded... $Y SO SKIPPING $N" &>>$LOG_FILE
+    echo -e "Data is already Loaded... $Y SO SKIPPING $N"
 fi
 
 END_TIME=$(date +%s)
