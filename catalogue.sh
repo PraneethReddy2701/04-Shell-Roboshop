@@ -11,7 +11,7 @@ SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOG_FILE=$(LOGS_FOLDER/$SCRIPT_NAME.log)
 SCRIPT_DIR=$PWD
 
-mkdir -p $LOGS_FOLDER &>>$LOG_FILE
+mkdir -p $LOGS_FOLDER 
 echo "Script Started running at : $(date)"
 
 if [ $USER_ID -ne 0 ]
