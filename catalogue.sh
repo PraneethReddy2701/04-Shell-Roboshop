@@ -1,6 +1,6 @@
 #!/bin/bash
 
-START_TIME=$(date -u)
+START_TIME=$(date +%s)
 USER_ID=$(id -u)
 R="\e[31m"
 G="\e[32m"
@@ -83,7 +83,7 @@ VALIDATE $? "Copying MongoDB repo file"
 dnf install mongodb-mongosh -y &>>$LOG_FILE
 VALIDATE $? "Installing MongoDB Client"
 
-STATUS=$(mongo mongodb.bittu27.site --eval 'db.getMongo().getDBNames().indexOf("catalogue")') 
+STATUS=$(mongosh --host mongodb.bittu27.site --eval 'db.getMongo().getDBNames().indexOf("catalogue")') 
 if [ $STATUS -lt 0 ]
 then
     mongosh --host mongodb.bittu27.site </app/db/master-data.js &>>$LOG_FILE
