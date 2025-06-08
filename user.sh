@@ -48,7 +48,7 @@ then
     useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop &>>$LOG_FILE
     VALIDATE $? "Creating the system user roboshop"
 else
-    echo -e "Roboshop user is already available.. $Y SO SKIPPING $N" &>>$LOG_FILE
+    echo -e "Roboshop user is already available.. $Y SO SKIPPING $N" | tee -a $LOG_FILE
 fi
 
 mkdir -p /app   &>>$LOG_FILE
