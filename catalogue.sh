@@ -8,18 +8,18 @@ Y="\e[33m"
 N="\e[0m"
 LOGS_FOLDER="/var/log/roboshop-logs"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
-LOG_FILE=$(LOGS_FOLDER/$SCRIPT_NAME.log)
+LOG_FILE=$($LOGS_FOLDER/$SCRIPT_NAME.log)
 SCRIPT_DIR=$PWD
 
 mkdir -p $LOGS_FOLDER 
-echo "Script Started running at : $(date)"
+echo "Script Started running at : $(date)" | tee -a $LOG_FILE
 
 if [ $USER_ID -ne 0 ]
 then    
-    echo -e "ERROR: $R Please run the script with root access $N" &>>$LOG_FILE
+    echo -e "ERROR: $R Please run the script with root access $N" | tee -a $LOG_FILE
     exit 1
 else
-    echo "Running the script with root access" &>>$LOG_FILE
+    echo "Running the script with root access" &>>$LOG_FILE | tee -a $LOG_FILE
 fi
 
 VALIDATE()
