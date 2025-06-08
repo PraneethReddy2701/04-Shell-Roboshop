@@ -9,12 +9,12 @@ N="\e[0m"
 LOGS_FOLDER="/var/log/roboshop-logs"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOG_FILE=$LOGS_FOLDER/$SCRIPT_NAME.log
-$SCRIPT_DIR=$PWD
+SCRIPT_DIR=$PWD
 
 mkdir -p $LOGS_FOLDER
 echo "Script started running at : $(date)"   &>>$LOG_FILE
 
-if [ $? -ne 0 ]
+if [ $USER_ID -ne 0 ]
 then
     echo -e "$R ERROR $N: Please run the script with root user"  &>>$LOG_FILE
     exit 1
@@ -33,7 +33,7 @@ VALIDATE()
     fi
 }
 
-dnf module disable redis -y  &>>$OG_FILE
+dnf module disable redis -y  &>>$LOG_FILE
 VALIDATE $? "Disabling the redis default version"
 
 dnf module enable redis:7 -y  &>>$OG_FILE
