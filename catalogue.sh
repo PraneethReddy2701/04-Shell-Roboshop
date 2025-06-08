@@ -16,10 +16,10 @@ echo "Script Started running at : $(date)" | tee -a $LOG_FILE
 
 if [ $USER_ID -ne 0 ]
 then    
-    echo -e "ERROR: $R Please run the script with root access $N" | tee -a $LOG_FILE
+    echo -e "ERROR: $R Please run the script with root access $N" 
     exit 1
 else
-    echo "Running the script with root access" &>>$LOG_FILE | tee -a $LOG_FILE
+    echo "Running the script with root access" &>>$LOG_FILE 
 fi
 
 VALIDATE()
