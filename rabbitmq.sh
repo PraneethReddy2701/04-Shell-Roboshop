@@ -51,12 +51,12 @@ VALIDATE $? "Starting rabbitmq"
 # id roboshop
 # if [ $? -ne 0 ]
 # then
-     rabbitmqctl add_user roboshop $RABBITMQ_PASSWORD &>>$LOG_FILE
+#     rabbitmqctl add_user roboshop $RABBITMQ_PASSWORD &>>$LOG_FILE
 #     VALIDATE $? "Adding Roboshop user"
 # else
 #     echo -e "Roboshop user is already created. $Y SO SKIPPING $N"
 # fi
-
+rabbitmqctl add_user roboshop $RABBITMQ_PASSWD &>>$LOG_FILE
 rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>>$LOG_FILE
 
 END_TIME=$(date +%s)
