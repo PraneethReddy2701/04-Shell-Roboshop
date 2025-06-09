@@ -22,7 +22,7 @@ else
 fi
 
 echo "Please enter the Mysql rorot password"  | tee -a $LOG_FILE
-read -s "MYSQL_ROOT_PASSWORD"
+read -s MYSQL_ROOT_PASSWORD
 
 VALIDATE()
 {
@@ -44,7 +44,7 @@ VALIDATE $? "Enabling Mysql"
 systemctl start mysqld   &>>$LOG_FILE
 VALIDATE $? "Starting Mysql"
 
-mysql_secure_installation --set-root-pass $MYSQL_ROOT_PASSWD  &>>$LOG_FILE
+mysql_secure_installation --set-root-pass $MYSQL_ROOT_PASSWORD  &>>$LOG_FILE
 VALIDATE $? "Set root password"
 
 END_TIME=$(date +%s)
