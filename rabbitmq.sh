@@ -36,7 +36,7 @@ VALIDATE()
     fi
 }
 
-cp rabbimq.repo /etc/yum.repos.d/rabbitmq.repo &>>$LOG_FILE
+cp rabbitmq.repo /etc/yum.repos.d/rabbitmq.repo &>>$LOG_FILE
 VALIDATE $? "Copying rabbitmq repo file"
 
 dnf install rabbitmq-server -y &>>$LOG_FILE
