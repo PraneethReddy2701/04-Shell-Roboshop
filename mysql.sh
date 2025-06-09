@@ -45,7 +45,7 @@ systemctl start mysqld   &>>$LOG_FILE
 VALIDATE $? "Starting Mysql"
 
 mysql_secure_installation --set-root-pass $MYSQL_ROOT_PASSWORD  &>>$LOG_FILE
-VALIDATE $? "Set root password"
+VALIDATE $? "Setting Mysql root password"
 
 END_TIME=$(date +%s)
 TOTAL_TIME=$(( $END_TIME - $START_TIME ))
