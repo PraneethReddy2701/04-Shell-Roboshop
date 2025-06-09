@@ -52,7 +52,7 @@ VALIDATE $? "Starting rabbitmq"
 # if [ $? -ne 0 ]
 # then
     rabbitmqctl add_user roboshop $RABBITMQ_PASSWORD &>>$LOG_FILE
-#     VALIDATE $? "Adding Roboshop user"
+    VALIDATE $? "Adding Roboshop user"
 # else
 #     echo -e "Roboshop user is already created. $Y SO SKIPPING $N"
 # fi
