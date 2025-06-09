@@ -60,7 +60,7 @@ unzip /tmp/shipping.zip &>>$LOG_FILE
 VALIDATE $? "Unzipping Shipping code"
 
 mvn clean package &>>$LOG_FILE
-VALIDATE "Downloading dependencies"
+VALIDATE $? "Downloading dependencies"
 
 mv target/shipping-1.0.jar shipping.jar  &>>$LOG_FILE
 VALIDATE $? "Copying and renaming Shipping jar file"
