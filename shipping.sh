@@ -81,12 +81,12 @@ dnf install mysql -y  &>>$LOG_FILE
 VALIDATE $? "Installing Mysql client"
 
 
-mysql -h mysql.bittu27.site -u root -pMYSQL_ROOT_PASSWD -e 'use cities' &>>$LOG_FILE
+mysql -h mysql.bittu27.site -u root -p$MYSQL_ROOT_PASSWD -e 'use cities' &>>$LOG_FILE
 if [ $? -ne 0 ]
 then
-    mysql -h mysql.bittu27.site -uroot -pMYSQL_ROOT_PASSWD < /app/db/schema.sql &>>$LOG_FILE
-    mysql -h mysql.bittu27.site -uroot -pMYSQL_ROOT_PASSWD < /app/db/app-user.sql &>>$LOG_FILE
-    mysql -h mysql.bittu27.site -uroot -pMYSQL_ROOT_PASSWD < /app/db/master-data.sql &>>$LOG_FILE
+    mysql -h mysql.bittu27.site -uroot -p$MYSQL_ROOT_PASSWD < /app/db/schema.sql &>>$LOG_FILE
+    mysql -h mysql.bittu27.site -uroot -p$MYSQL_ROOT_PASSWD < /app/db/app-user.sql &>>$LOG_FILE
+    mysql -h mysql.bittu27.site -uroot -p$MYSQL_ROOT_PASSWD < /app/db/master-data.sql &>>$LOG_FILE
     VALIDATE $? "Loading data into shipping"
 else
     echo "Data is already loaded" | tee -a $LOG_FILE
