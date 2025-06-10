@@ -56,8 +56,8 @@ VALIDATE $? "Starting rabbitmq"
 # else
 #     echo -e "Roboshop user is already created. $Y SO SKIPPING $N"
 # fi
-rabbitmqctl add_user roboshop $RABBITMQ_PASSWORD &>>$LOG_FILE
-rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>>$LOG_FILE
+rabbitmqctl add_user roboshop $RABBITMQ_PASSWORD 
+rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" 
 
 END_TIME=$(date +%s)
 TOTAL_TIME=$(( $END_TIME - $START_TIME ))
